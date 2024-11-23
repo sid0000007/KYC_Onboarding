@@ -31,7 +31,7 @@ To set up the project locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-repo/multi-step-progress-form.git
+   git clone https://github.com/your-repo/multi-step-progress-form.git](https://github.com/sid0000007/KYC_Onboarding.git
    cd kyc_form
 
 2.	Install dependencies:
