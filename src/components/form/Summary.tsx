@@ -14,6 +14,7 @@ export const SummaryStep = () => {
   const [submission, setsubmission] = useState(false);
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    setsubmission(true);
     try {
       if (
         !data.accountInfo?.account_type ||
@@ -85,12 +86,12 @@ export const SummaryStep = () => {
         },
       };
 
-      
+
       const validatedData = completeFormSchema.parse(completeData);
 
       await submitKYCForm(validatedData);
       console.log("KYC Form Submitted:", validatedData);
-      setsubmission(true);
+     
       redirect(`/Thankyou`);
     } catch (error) {
       toast.error("Failed to submit KYC form");
@@ -181,7 +182,7 @@ export const SummaryStep = () => {
                     rel="noreferrer"
                     className="text-blue-500"
                   >
-                    link
+                   {` `} Open Document
                   </a>
                 </p>
               )}

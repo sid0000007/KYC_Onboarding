@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-
 export const metadata: Metadata = {
   title: "KYC",
   description: "KYC form for onboarding",
@@ -14,9 +13,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        {children}
-      </body>
+      <link rel="shortcut icon" href="/apple.png" />
+      <body>{children}</body>
     </html>
   );
 }
