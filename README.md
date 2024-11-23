@@ -1,6 +1,7 @@
 # KYC Onboarding System
 
-https://github.com/user-attachments/assets/87289e23-4e67-4b91-a4ab-09fa55ce64bb
+![image](https://github.com/user-attachments/assets/9b426d68-735f-4cbf-9cc8-b911cf78307b)
+
 
 
 
