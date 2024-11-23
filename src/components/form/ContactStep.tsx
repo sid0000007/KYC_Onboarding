@@ -1,4 +1,3 @@
-// src/components/form/ContactStep.tsx
 import React from "react";
 import { useForm as useHookForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -69,42 +68,6 @@ export const ContactStep = () => {
             </FormItem>
           )}
         />
-
-        {/* <FormField
-          control={form.control}
-          name="street_address"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Street Address</FormLabel>
-              <FormControl>
-                <div className="space-y-2">
-                  {field.value.map((_, index) => (
-                    <Input
-                      key={index}
-                      placeholder={`Address Line ${index + 1}`}
-                      value={field.value[index] || ''}
-                      onChange={(e) => {
-                        const newValue = [...field.value];
-                        newValue[index] = e.target.value;
-                        field.onChange(newValue);
-                      }}
-                    />
-                  ))}
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={() => field.onChange([...field.value, ''])}
-                    className="w-full"
-                  >
-                    Add Address Line
-                  </Button>
-                </div>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        /> */}
-
         <FormField
           control={form.control}
           name="city"

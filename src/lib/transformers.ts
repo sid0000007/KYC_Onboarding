@@ -1,6 +1,6 @@
 import { CompleteFormInputs } from "./validation";
 
-// utils/transformers.ts
+
 export const transformFormDataToDb = (formData: CompleteFormInputs) => {
     return {
         // Account Info

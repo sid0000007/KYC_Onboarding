@@ -1,5 +1,3 @@
-
-// src/lib/validation.ts
 import { z } from 'zod';
 
 // Form 1 - Account Type Schema
@@ -19,7 +17,7 @@ export const accountTypeSchema = z
         },
         {
             message: "IRA accounts must specify a sub-type",
-            path: ["account_sub_type"], // This will make the error show up on the account_sub_type field
+            path: ["account_sub_type"],
         }
     );
 // Form 2 - Contact Schema

@@ -1,4 +1,4 @@
-// src/components/form/Summary.tsx
+
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -15,7 +15,6 @@ export const SummaryStep = () => {
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try {
-      // Validate that all required data is present
       if (
         !data.accountInfo?.account_type ||
         !data.contact?.email_address ||
@@ -37,7 +36,6 @@ export const SummaryStep = () => {
         return;
       }
 
-      // Create complete data object with type assertion
       const completeData: CompleteFormInputs = {
         accountInfo: {
           account_type: data.accountInfo.account_type,
@@ -87,7 +85,7 @@ export const SummaryStep = () => {
         },
       };
 
-      // Validate the complete data against the schema
+      
       const validatedData = completeFormSchema.parse(completeData);
 
       await submitKYCForm(validatedData);

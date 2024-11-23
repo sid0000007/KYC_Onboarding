@@ -11,11 +11,6 @@ export const COUNTRIES = [
     { value: 'china', label: 'China' }
   ];
 
-// export const DOCUMENT_TYPES = [
-//     { value: 'passport', label: 'Passport' },
-//     { value: 'drivingLicense', label: 'Driving License' },a
-//     { value: 'nationalId', label: 'National ID' }
-// ];
 
 export const ACCOUNT_TYPES = [
     { value: 'trading', label: 'Trading' },

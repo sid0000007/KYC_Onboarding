@@ -1,7 +1,8 @@
 "use client";
-
 import { CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function ThankYouScreen() {
   return (
@@ -28,8 +29,10 @@ export default function ThankYouScreen() {
         <p className="text-xl text-gray-600">
           Your submission has been received.
         </p>
-      </motion.div>
+        <Button className="mt-5">
+        <Link href="/">Go Back</Link>
+      </Button>
+      </motion.div>      
     </div>
   );
 }
-

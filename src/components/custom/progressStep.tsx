@@ -5,15 +5,9 @@ interface ProgressStepProps {
   step: number;
   currentStep: number;
   label: string;
-  description?: string;
 }
 
-export function ProgressStep({
-  step,
-  currentStep,
-  label,
-  description,
-}: ProgressStepProps) {
+export function ProgressStep({ step, currentStep, label }: ProgressStepProps) {
   const isCompleted = step < currentStep;
   const isActive = step === currentStep;
 
@@ -45,13 +39,12 @@ export function ProgressStep({
       </motion.div>
       <div className="ml-2">
         <span
-          className={`text-sm ${
+          className={`text-sm  ${
             isActive ? "text-primary font-medium" : "text-gray-500"
           }`}
         >
           {label}
         </span>
-        {description && <p className="text-xs text-gray-400">{description}</p>}
       </div>
     </div>
   );

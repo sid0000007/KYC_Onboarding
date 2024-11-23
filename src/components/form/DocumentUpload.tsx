@@ -1,5 +1,3 @@
-//Cloundary API inetgration
-
 import React, { useState } from "react";
 import { useForm as useHookForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -130,7 +128,7 @@ export const DocumentUploadStep = () => {
           name="content_data.file_link"
           render={() => (
             <FormItem>
-              <FormLabel>Upload Document</FormLabel>
+              <FormLabel>Upload Document (png,jpeg,heic)</FormLabel>
               <FormControl>
                 <div className="flex items-center space-x-4">
                   <Input

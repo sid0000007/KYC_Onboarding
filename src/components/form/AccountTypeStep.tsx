@@ -1,4 +1,3 @@
-// src/components/form/AccountTypeStep.tsx
 import React from "react";
 import { useForm as useHookForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -39,7 +38,7 @@ export const AccountTypeStep = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 py-4">
         <FormField
           control={form.control}
           name="account_type"

@@ -74,22 +74,6 @@ export const TaxDetailsStep = () => {
           )}
         />
 
-        {/* <FormField
-          control={form.control}
-          name="country_of_tax_residence"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Country of Tax Residence</FormLabel>
-              <FormControl>
-                <Input
-                  placeholder="Enter country of tax residence"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        /> */}
         <FormField
   control={form.control}
   name="country_of_tax_residence"
