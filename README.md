@@ -1,6 +1,7 @@
 # KYC Onboarding System
 
-<img width="1439" alt="Screenshot 2024-11-24 at 2 17 20 AM" src="https://github.com/user-attachments/assets/d8129639-cc51-484c-b748-f10d14132baf">
+https://github.com/user-attachments/assets/87289e23-4e67-4b91-a4ab-09fa55ce64bb
+
 
 
 This is a **multi-step progress form** project built with **Next.js** and **TypeScript**. It allows users to fill in details such as name, date of birth, dropdown options, and upload files. The project enhances the user experience with a visually appealing progress bar and step completion tracker. The backend uses **Turso (SQLite)**, **Drizzle ORM**, and **TypeScript** within a monorepo setup.
