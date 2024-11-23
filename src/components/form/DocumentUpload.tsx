@@ -1,5 +1,5 @@
-// src/components/form/DocumentUpload.tsx
-'use client';
+//Cloundary API inetgration
+
 import React, { useState } from "react";
 import { useForm as useHookForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -21,34 +21,65 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useForm as useFormContext } from "@/providers/FormProvider";
-//import { documentInfoSchema, DocumentInfoInputs } from "@/lib/validation";
 import { documentSchema, DocumentInputs } from "@/lib/validation";
 import { DOCUMENT_TYPES } from "@/lib/constants";
 import { FileCheck2, FileUp } from "lucide-react";
+import { Span } from "next/dist/trace";
 
 export const DocumentUploadStep = () => {
   const { state, updateFormData, nextStep, previousStep } = useFormContext();
+  const [uploading, setUploading] = useState(false);
   const [previewFile, setPreviewFile] = useState<string | null>(null);
 
   const form = useHookForm<DocumentInputs>({
     resolver: zodResolver(documentSchema),
-    defaultValues: state.data.document as DocumentInputs,
+    defaultValues: {
+      document_type: state.data.document?.document_type || "passport",
+      document_number: state.data.document?.document_number || "",
+      content_data: state.data.document?.content_data || { file_link: "" },
+    },
   });
 
   const onSubmit = (data: DocumentInputs) => {
     updateFormData("document", data);
+    console.log("data", data);
     nextStep();
   };
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const file = event.target.files?.[0];
     if (file) {
-      form.setValue("content_data.file", file);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setPreviewFile(reader.result as string);
-      };
-      reader.readAsDataURL(file);
+      setUploading(true);
+
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append(
+        "upload_preset",
+        process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET || "RRdigital"
+      );
+
+      try {
+        const response = await fetch(
+          `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/upload`,
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+
+        const data = await response.json();
+        console.log("data", data);
+        if (data.secure_url) {
+          form.setValue("content_data.file_link", data.secure_url);
+          setPreviewFile(data.secure_url);
+        }
+      } catch (error) {
+        console.error("Error uploading file:", error);
+      } finally {
+        setUploading(false);
+      }
     }
   };
 
@@ -96,7 +127,7 @@ export const DocumentUploadStep = () => {
 
         <FormField
           control={form.control}
-          name="content_data.file"
+          name="content_data.file_link"
           render={() => (
             <FormItem>
               <FormLabel>Upload Document</FormLabel>
@@ -112,12 +143,16 @@ export const DocumentUploadStep = () => {
                   <label
                     htmlFor="documentUpload"
                     className="flex items-center cursor-pointer 
-                      bg-primary text-primary-foreground 
-                      px-4 py-2 rounded-md hover:bg-primary/90"
+                        bg-primary text-primary-foreground 
+                        px-4 py-2 rounded-md hover:bg-primary/90"
                   >
                     <FileUp className="mr-2 h-5 w-5" />
-                    Choose File
+
+                    {(uploading && <span>Uploading...</span>) || (
+                      <span>Choose File</span>
+                    )}
                   </label>
+
                   {previewFile && (
                     <div className="flex items-center text-green-600">
                       <FileCheck2 className="mr-2 h-5 w-5" />
@@ -141,7 +176,7 @@ export const DocumentUploadStep = () => {
                 className="max-h-48 w-auto rounded-md"
               />
             ) : (
-              <p className="text-sm text-gray-500">PDF file selected</p>
+              <p className="text-sm text-gray-500">PDF file uploaded</p>
             )}
           </div>
         )}
@@ -155,7 +190,12 @@ export const DocumentUploadStep = () => {
           >
             Back
           </Button>
-          <Button type="submit" className="w-1/2">
+          <Button
+            type="submit"
+            className="w-1/2"
+            onClick={console.log}
+            disabled={uploading}
+          >
             Review
           </Button>
         </div>

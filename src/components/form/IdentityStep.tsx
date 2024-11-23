@@ -19,7 +19,13 @@ export const IdentityStep = () => {
 
   const form = useHookForm<IdentityInputs>({
     resolver: zodResolver(identitySchema),
-    defaultValues: state.data.identity,
+    defaultValues: 
+            {
+            given_name: state.data.identity?.given_name || "",
+            family_name: state.data.identity?.family_name || "",
+            middle_name: state.data.identity?.middle_name || "",
+            date_of_birth: state.data.identity?.date_of_birth || "",
+        },
   });
 
   const onSubmit = (data: IdentityInputs) => {

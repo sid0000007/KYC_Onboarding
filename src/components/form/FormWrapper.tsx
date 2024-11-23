@@ -14,6 +14,7 @@ import { IdentityStep } from "./IdentityStep";
 import { TaxDetailsStep } from "./TaxDetailsStep";
 import { DisclosuresStep } from "./DiscloserStep";
 import { stat } from "fs";
+import ThankYouScreen from "./Thankyou";
 
 export const FormWrapper = () => {
   const { state } = useForm();
@@ -36,40 +37,36 @@ export const FormWrapper = () => {
       isActive: state.currentStep === "contact",
     },
     {
-        id: "identity",
-        label: "Identity",
-        description: "90 secs to complete",
-        isCompleted: 
-         state.currentStep !== "identity" && state.currentStep !== "summary",
-        isActive: state.currentStep === "identity",        
-
+      id: "identity",
+      label: "Identity",
+      description: "90 secs to complete",
+      isCompleted:
+        state.currentStep !== "identity" && state.currentStep !== "summary",
+      isActive: state.currentStep === "identity",
     },
     {
-        id: "tax",
-        label: "Tax Details",
-        description: "120 secs to complete",
-        isCompleted: 
-         state.currentStep !== "tax" && state.currentStep !== "summary",
-        isActive: state.currentStep === "tax",        
-
+      id: "tax",
+      label: "Tax Details",
+      description: "120 secs to complete",
+      isCompleted:
+        state.currentStep !== "tax" && state.currentStep !== "summary",
+      isActive: state.currentStep === "tax",
     },
     {
-        id: "disclosures",
-        label: "Disclosures",
-        description: "150 secs to complete",
-        isCompleted: 
-         state.currentStep !== "disclosures" && state.currentStep !== "summary",
-        isActive: state.currentStep === "disclosures",        
-
+      id: "disclosures",
+      label: "Disclosures",
+      description: "150 secs to complete",
+      isCompleted:
+        state.currentStep !== "disclosures" && state.currentStep !== "summary",
+      isActive: state.currentStep === "disclosures",
     },
     {
-        id: "document",
-        label: "Document Upload",
-        description: "180 secs to complete",
-        isCompleted: 
-         state.currentStep !== "document" && state.currentStep !== "summary",
-        isActive: state.currentStep === "document",
-
+      id: "document",
+      label: "Document Upload",
+      description: "180 secs to complete",
+      isCompleted:
+        state.currentStep !== "document" && state.currentStep !== "summary",
+      isActive: state.currentStep === "document",
     },
     {
       id: "summary",

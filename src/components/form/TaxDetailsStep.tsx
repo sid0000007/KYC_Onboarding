@@ -3,6 +3,7 @@ import { useForm as useHookForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { COUNTRIES } from "@/lib/constants";
 import {
   Form,
   FormControl,
@@ -28,7 +29,13 @@ export const TaxDetailsStep = () => {
 
   const form = useHookForm<TaxDetailsInputs>({
     resolver: zodResolver(taxDetailsSchema),
-    defaultValues: state.data.taxDetails,
+    defaultValues: {
+      tax_id: state.data.taxDetails?.tax_id || "",
+      tax_id_type: state.data.taxDetails?.tax_id_type || "",
+      country_of_tax_residence:
+        state.data.taxDetails?.country_of_tax_residence || "",
+      funding_source: state.data.taxDetails?.funding_source || [],
+    },
   });
 
   const onSubmit = (data: TaxDetailsInputs) => {
@@ -67,7 +74,7 @@ export const TaxDetailsStep = () => {
           )}
         />
 
-        <FormField
+        {/* <FormField
           control={form.control}
           name="country_of_tax_residence"
           render={({ field }) => (
@@ -82,7 +89,31 @@ export const TaxDetailsStep = () => {
               <FormMessage />
             </FormItem>
           )}
-        />
+        /> */}
+        <FormField
+  control={form.control}
+  name="country_of_tax_residence"
+  render={({ field }) => (
+    <FormItem>
+      <FormLabel>Country of Tax Residence</FormLabel>
+      <Select onValueChange={field.onChange} defaultValue={field.value}>
+        <FormControl>
+          <SelectTrigger>
+            <SelectValue placeholder="United States" />
+          </SelectTrigger>
+        </FormControl>
+        <SelectContent>
+          {COUNTRIES.map((country) => (
+            <SelectItem key={country.value} value={country.value}>
+              {country.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+      <FormMessage />
+    </FormItem>
+  )}
+/>
 
         <FormField
           control={form.control}
@@ -97,7 +128,9 @@ export const TaxDetailsStep = () => {
                     className="flex items-center space-x-2"
                   >
                     <Checkbox
-                      checked={(field.value as string[])?.includes(source.value)}
+                      checked={(field.value as string[])?.includes(
+                        source.value
+                      )}
                       onCheckedChange={(checked) => {
                         const updatedValue = checked
                           ? [...(field.value || []), source.value]

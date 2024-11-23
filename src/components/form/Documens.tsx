@@ -79,7 +79,7 @@ export const DocumentUploadStep = () => {
 
         <FormField
           control={form.control}
-          name="content_data.file"
+          name="content_data"
           render={({ field: { onChange, value, ...field } }) => (
             <FormItem>
               <FormLabel>Upload Document</FormLabel>

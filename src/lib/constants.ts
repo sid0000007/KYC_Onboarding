@@ -1,20 +1,19 @@
-// src/lib/constants.ts
 export const COUNTRIES = [
-    'United States',
-    'Canada',
-    'United Kingdom',
-    'Australia',
-    'Germany',
-    'France',
-    'Japan',
-    'India',
-    'Brazil',
-    'China'
-];
+    { value: 'united-states', label: 'United States' },
+    { value: 'canada', label: 'Canada' },
+    { value: 'united-kingdom', label: 'United Kingdom' },
+    { value: 'australia', label: 'Australia' },
+    { value: 'germany', label: 'Germany' },
+    { value: 'france', label: 'France' },
+    { value: 'japan', label: 'Japan' },
+    { value: 'india', label: 'India' },
+    { value: 'brazil', label: 'Brazil' },
+    { value: 'china', label: 'China' }
+  ];
 
 // export const DOCUMENT_TYPES = [
 //     { value: 'passport', label: 'Passport' },
-//     { value: 'drivingLicense', label: 'Driving License' },
+//     { value: 'drivingLicense', label: 'Driving License' },a
 //     { value: 'nationalId', label: 'National ID' }
 // ];
 

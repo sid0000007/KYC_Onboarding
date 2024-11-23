@@ -28,7 +28,14 @@ export const DisclosuresStep = () => {
 
   const form = useHookForm<DisclosuresInputs>({
     resolver: zodResolver(disclosuresSchema),
-    defaultValues: state.data.disclosures,
+    defaultValues: 
+    {
+        employment_status: state.data.disclosures?.employment_status || "employed",
+        employer_name: state.data.disclosures?.employer_name || "",
+        is_control_person: state.data.disclosures?.is_control_person || false,
+        is_politically_exposed: state.data.disclosures?.is_politically_exposed || false,
+        immediate_family_exposed: state.data.disclosures?.immediate_family_exposed || false,
+    }
   });
 
   const onSubmit = (data: DisclosuresInputs) => {
