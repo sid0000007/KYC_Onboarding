@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KYC Onboarding System
 
-## Getting Started
+<img width="1439" alt="Screenshot 2024-11-24 at 2 17 20 AM" src="https://github.com/user-attachments/assets/d8129639-cc51-484c-b748-f10d14132baf">
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This is a **multi-step progress form** project built with **Next.js** and **TypeScript**. It allows users to fill in details such as name, date of birth, dropdown options, and upload files. The project enhances the user experience with a visually appealing progress bar and step completion tracker. The backend uses **Turso (SQLite)**, **Drizzle ORM**, and **TypeScript** within a monorepo setup.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Before you begin, ensure you have the following environment variables configured in your `.env` file:
 
-## Learn More
+1. **Cloudinary API Key:**
+   - `CLOUDINARY_API_KEY`: Your Cloudinary API key for handling file uploads.
+   - `CLOUDINARY_CLOUD_NAME`: Your Cloudinary cloud name.
 
-To learn more about Next.js, take a look at the following resources:
+2. **Database:**
+   -  `NEXT_PUBLIC_TURSO_DATABASE_URL`: The URL to connect to your Turso SQLite database.
+   - `NEXT_PUBLIC_TURSO_AUTH_TOKEN`: The token to authenticate with the Turso database.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Installation
 
-## Deploy on Vercel
+To set up the project locally, follow these steps:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Clone the repository:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```bash
+   git clone https://github.com/your-repo/multi-step-progress-form.git
+   cd kyc_form
+
+2.	Install dependencies:
+    
+    ```bash
+    npm i
+
+3. Run locally
+   ```bash
+   npm run dev
+4. Go to Browser and access 
+    ```bash
+   localhost:3000
+
+
+## Project Structure
+
+<img width="576" alt="Screenshot 2024-11-24 at 2 17 46 AM" src="https://github.com/user-attachments/assets/3fb503bb-814e-4812-881d-205d3ca00612">
+
+  
+## 🛠️ Tech Stack
+
+-   **Frontend**: Next.js
+-   **Styling**: TailwindCSS + [shadcn](https://shadcn.dev/) etc.
+-   **Backend**: TypeScript, Turso, Drizzle ORM
+-   **Database**: SQLite
+
+   
+
+
