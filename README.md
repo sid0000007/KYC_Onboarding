@@ -15,8 +15,8 @@ This is a **multi-step progress form** project built with **Next.js** and **Type
 Before you begin, ensure you have the following environment variables configured in your `.env` file:
 
 1. **Cloudinary API Key:**
-   - `CLOUDINARY_API_KEY`: Your Cloudinary API key for handling file uploads.
-   - `CLOUDINARY_CLOUD_NAME`: Your Cloudinary cloud name.
+   - `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`: Your Cloudinary API key for handling file uploads.
+   - `NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET`: Your Cloudinary cloud name.
 
 2. **Database:**
    -  `NEXT_PUBLIC_TURSO_DATABASE_URL`: The URL to connect to your Turso SQLite database.
